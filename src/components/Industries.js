@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Box, Grid, Card } from '@mui/material';
-import { ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel } from '../../assets';
+import { ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel } from '/public';
+import Image from 'next/image';
 
 const industries = [
     {
@@ -56,7 +57,7 @@ const Industries = () => {
                 {industries.map((industry, index) => (
                     <Grid item key={index} xs={15} sm={7} md={3}>
                         <Card sx={{ px: 8, py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', textAlign: 'center', height: '40%', borderRadius: 4 }}>
-                            <img src={industry.icon} alt={industry.title} style={{ objectFit: 'contain', height: 50 }} />
+                            <Image src={industry.icon} alt={industry.title} style={{ objectFit: 'contain', height: 50 }} />
                             <Typography variant="h6" sx={{ mt: 2 }}>
                                 {industry.title}
                             </Typography>

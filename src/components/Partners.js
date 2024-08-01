@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
-import { agencies, enterprises, startup, mediumnsmall, SME, Agencies, Startups, Enterprise } from '../../assets';
+import { agencies, enterprises, startup, mediumnsmall, SME, Agencies, Startups, Enterprise } from '/public';
+import Image from 'next/image';
 
 const partners = [
     {
@@ -35,7 +36,7 @@ const Partners = () => {
                 {partners.map((partner, index) => (
                     <Grid item key={index} xs={12} sm={6} md={3}>
                         <Box sx={{ py: 6, display: 'flex', flexDirection: 'column', textAlign: 'center', borderRadius: 4 }}>
-                            <img src={partner.icon} alt={partner.title} style={{ objectFit: 'contain', width: '100%', borderRadius: 19 }} />
+                            <Image src={partner.icon} alt={partner.title} style={{ objectFit: 'contain', width: '100%', borderRadius: 19 }} />
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', mt: 2 }}>
                                 {partner.image}
                                 <Typography variant="h6" sx={{ mx: 2 }}>

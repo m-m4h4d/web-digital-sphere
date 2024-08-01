@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
-import { BusinessPartner } from '..';
-import { heronasa, image, plan, reach } from '../../assets';
+import { BusinessPartner } from './components';
+import { heronasa, image, plan, reach } from '/public';
+import Image from 'next/image';
 
 const items = [
     {
@@ -32,11 +33,11 @@ const About = () => {
                         <b>About Us</b>
                     </Typography>
                     <Typography sx={{ mb: 4 }}>
-                        WebDigitalSphere is an emerging IT-powered digital solutions provider, with strategies that are tailored to client's needs and goals. With a concentrated team of marketing experts, developers, writers & designers who work collaboratively to deliver revenue-generating outcomes.
+                        WebDigitalSphere is an emerging IT-powered digital solutions provider, with strategies that are tailored to client&rsquo;s needs and goals. With a concentrated team of marketing experts, developers, writers & designers who work collaboratively to deliver revenue-generating outcomes.
                     </Typography>
                 </Grid>
                 <Grid item sm={12} md={6} sx={{ py: 0, my: 0 }}>
-                    <img src={heronasa} alt="Hero NASA" style={{ width: "100%" }} />
+                    <Image src={heronasa} alt="Hero NASA" style={{ width: "100%", height :"100%" }} />
                 </Grid>
             </Grid>
             <Box sx={{ width: "100%", my: 0, py: 0 }}>
@@ -58,7 +59,7 @@ const About = () => {
                         </Typography>
                     ))}
                 </Box>
-                <Box key={index} sx={{
+                <div key={index} style={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -82,7 +83,7 @@ const About = () => {
                 }}>
                     <Typography variant="h4" component="h2" sx={{ my: 2 }}><b>{items[index].title}</b></Typography>
                     <Typography sx={{ maxWidth: '45%', textAlign: 'center' }}>{items[index].description}</Typography>
-                </Box>
+                </div>
             </Box>
             <Box sx={{ background: "#F0F9FF", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", py: 8, my: 0 }}>
                 <Box sx={{ width: "70%", my: 4 }}>
@@ -92,7 +93,7 @@ const About = () => {
                     <Typography gutterBottom>
                         Our team of diligent in-house experts provides optimal and satisfying solutions to our clients.
                         <br /><br />
-                        We work with the latest tech stack to harness the full potential of your websites and applications. And we don't just build websites, we build websites that sell. After a decade of working with prominent productive environments, we have come up with the best-performing strategies for your digital marketing, website SEO optimizations, responsiveness, and marketing designs. We are manifesting excellent workflow, development, and content strategy that promotes your brand 24/7. No amount of employees can help you achieve the level of visibility and engagement like we do.
+                        We work with the latest tech stack to harness the full potential of your websites and applications. And we don&rsquo;t just build websites, we build websites that sell. After a decade of working with prominent productive environments, we have come up with the best-performing strategies for your digital marketing, website SEO optimizations, responsiveness, and marketing designs. We are manifesting excellent workflow, development, and content strategy that promotes your brand 24/7. No amount of employees can help you achieve the level of visibility and engagement like we do.
                         <br /><br />
                         Having deployed all sorts of custom mobile applications for iOS and Android, we have amassed a rich portfolio in all software development platforms like Flutter, React Native, and AR/VR amongst several others. Developers who are driven by excellence, deliver your applications in a timely and budget-friendly manner. Working in close collaboration with designers, we make selling designs for your marketing campaigns, websites, and applications. Experts provide detailed consultation for targeting local and global audiences whether it is designs, visuals, applications, or quality content.
                     </Typography>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Typography, Button } from '@mui/material';
-import { agile } from '../../assets';
+import { agile } from '/public';
+import Image from 'next/image';
 
 const Strategy = () => {
     return (
@@ -9,7 +10,7 @@ const Strategy = () => {
                 <Typography variant="h3" gutterBottom component="span" sx={{ color: 'black' }}><b>Our</b></Typography>
                 <b> Agile Development Strategy</b>
             </Typography>ٖ
-            <img src={agile} alt="Agile Software Development" style={{ width: '100%' }} />
+            <Image src={agile} alt="Agile Software Development" layout="responsive" width={1000} height={500} />
             <Typography variant="body2" component="p" sx={{ mt: 4 }}>
                 To benefit from our work ethics act now,
             </Typography>
