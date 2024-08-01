@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../../../..';
+import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../components';
 import { react } from '/public';
 
 const BusinessWebsiteDesign = () => {

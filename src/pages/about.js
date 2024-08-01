@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
-import { BusinessPartner } from './components';
+import { BusinessPartner } from '../components';
 import { heronasa, image, plan, reach } from '/public';
 import Image from 'next/image';
 
@@ -22,8 +22,30 @@ const items = [
     }
 ];
 
-const About = () => {
+function About() {
     const [index, setIndex] = React.useState(0);
+    const style = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        py: 8,
+        position: 'relative',
+        color: 'white',
+        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${items[index].image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'brightness(1)',
+            zIndex: -1,
+        }
+    };
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', my: 0, py: 0 }}>
@@ -37,7 +59,7 @@ const About = () => {
                     </Typography>
                 </Grid>
                 <Grid item sm={12} md={6} sx={{ py: 0, my: 0 }}>
-                    <Image src={heronasa} alt="Hero NASA" style={{ width: "100%", height :"100%" }} />
+                    <Image src={heronasa} alt="Hero NASA" style={{ width: "100%", height: "100%" }} />
                 </Grid>
             </Grid>
             <Box sx={{ width: "100%", my: 0, py: 0 }}>
@@ -59,28 +81,7 @@ const About = () => {
                         </Typography>
                     ))}
                 </Box>
-                <div key={index} style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    py: 8,
-                    position: 'relative',
-                    color: 'white',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-                    '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: `url(${items[index].image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        filter: 'brightness(0.1)',
-                        zIndex: -1,
-                    }
-                }}>
+                <div key={index} style={style}>
                     <Typography variant="h4" component="h2" sx={{ my: 2 }}><b>{items[index].title}</b></Typography>
                     <Typography sx={{ maxWidth: '45%', textAlign: 'center' }}>{items[index].description}</Typography>
                 </div>
@@ -105,17 +106,15 @@ const About = () => {
                     <Typography variant="h4" component="h1" gutterBottom><b>Awards & Recognitions</b></Typography>
                 </Box>
                 <Box sx={{ width: "50%" }}>
-                    <Typography gutterBottom>
-                        WebDigitalSphere has collected dozens of prominent awards and recognitions by working with reputed companies. We carry a tradition of excellence in SEO, Website innovation, design supremacy, and top-notch quality content.
-                        <br /><br />
-                        Here is our list of local and global recognitions:
-                        <br />
-                        <ul>
-                            <li>Business Excellence (800+ clients satisfied)</li>
-                            <li>Top growing SEO company</li>
-                            <li>Fastest-growing SEO and marketing company (20+ countries worldwide)</li>
-                        </ul>
-                    </Typography>
+                    WebDigitalSphere has collected dozens of prominent awards and recognitions by working with reputed companies. We carry a tradition of excellence in SEO, Website innovation, design supremacy, and top-notch quality content.
+                    <br /><br />
+                    Here is our list of local and global recognitions:
+                    <br />
+                    <ul>
+                        <li>Business Excellence (800+ clients satisfied)</li>
+                        <li>Top growing SEO company</li>
+                        <li>Fastest-growing SEO and marketing company (20+ countries worldwide)</li>
+                    </ul>
                 </Box>
             </Box>
         </Box>
