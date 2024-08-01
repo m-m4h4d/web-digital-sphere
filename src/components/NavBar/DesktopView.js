@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { RequestQuote } from '..';
+import { RequestQuote } from '../';
 import { ExpandLess, ExpandMore, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
 import { Typography, Box, Button, Menu, MenuItem, Divider, Grid, ListItemText } from '@mui/material';
 import {
@@ -131,7 +130,7 @@ function DesktopView() {
     return (
         <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }, justifyContent: 'center', p: 0, m: 0, alignItems: 'center' }}>
             <Box sx={{ justifyContent: 'center', alignItems: 'center', display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' } }}>
-                <Typography component={Link} to="/" variant='h3' sx={{ flexGrow: 1, mx: 1, textDecoration: "none", cursor: "pointer", color: "black" }}>LOGO</Typography>
+                <Typography variant='h3' sx={{ flexGrow: 1, mx: 1, textDecoration: "none", cursor: "pointer", color: "black" }}>LOGO</Typography>
             </Box>
             <Box
                 onMouseEnter={handleMouseEnterServices}
@@ -212,7 +211,7 @@ function DesktopView() {
                                         <Grid item md={6} key={index} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                                             <Box sx={{ display: 'flex' }}>
                                                 {option.icon}
-                                                <Typography variant='body2' component={Link} to={option.link} onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
+                                                <Typography variant='body2' onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
                                                     <b>{option.label}</b>
                                                 </Typography>
                                             </Box>
@@ -241,7 +240,7 @@ function DesktopView() {
                 </Menu>
             </Box>
             {pages.map((page) => (
-                <Button sx={{ color: 'black', mx: 1 }} key={page} component={Link} to={page.link}>
+                <Button sx={{ color: 'black', mx: 1 }} key={page}>
                     <b>{page.label}</b>
                 </Button>
             ))}

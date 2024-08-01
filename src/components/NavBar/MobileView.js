@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { RequestQuote } from '..';
+import { RequestQuote } from '../';
 import { ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
 import { Typography, Box, Button, MenuItem, Divider, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
@@ -90,8 +89,8 @@ function MobileView() {
 
     return (
         <>
-            <Box component={Link} to="/" sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%', cursor: 'pointer', textDecoration: "none" }}>
-                <Typography component={Link} to="/" variant='h3' sx={{ flexGrow: 1, mx: 1, color: 'black', textDecoration: 'none', cursor: 'pointer' }}>LOGO</Typography>
+            <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%', cursor: 'pointer', textDecoration: "none" }}>
+                <Typography variant='h3' sx={{ flexGrow: 1, mx: 1, color: 'black', textDecoration: 'none', cursor: 'pointer' }}>LOGO</Typography>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
                 <IconButton
@@ -130,8 +129,6 @@ function MobileView() {
                             <>
                                 <MenuItem
                                     key={index}
-                                    component={Link}
-                                    to={page.link}
                                     onClick={handleCloseNavMenu}
                                     sx={{
                                         color: 'primary.main',
