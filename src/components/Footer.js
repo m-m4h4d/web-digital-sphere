@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/material';
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
-import { footer } from '../../assets';
+import { footer } from '/public';
+import Image from 'next/image';
 
 const Buttons = {
     'Services': ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'],
@@ -13,7 +14,7 @@ const Footer = () => {
     return (
         <footer>
             <Box sx={{ position: 'relative', backgroundColor: '#F0F9FF', py: 17 }}>
-                <img src={footer} alt="footer" style={{
+                <Image src={footer} alt="footer" style={{
                     borderRadius: 19,
                     width: '50%',
                     position: 'absolute',
@@ -36,7 +37,7 @@ const Footer = () => {
                         <b>Have A Project In Mind?</b>
                     </Typography>
                     <Typography variant='h6' sx={{ my: 1, mx: 14 }}>
-                        Looking for answers and don't know where to begin? Plan your next venture with our expert guidance and consultancy.
+                        Looking for answers and don&rsquo;t know where to begin? Plan your next venture with our expert guidance and consultancy.
                     </Typography>
                     <Button variant="contained" sx={{ background: 'white', color: 'primary.main', '&:hover': { background: '#F0F9FF' }, mt: 3, py: 1.5 }}>
                         Get Started Now
@@ -85,11 +86,10 @@ const Footer = () => {
                                     <b>{section}</b>
                                 </Typography>
                                 {items.map((item, index) => (
-                                    <Box>
+                                    <Box key={index}>
                                         <Button
                                             variant="contained"
                                             href="#"
-                                            key={index}
                                             sx={{
                                                 borderRadius: 999,
                                                 backgroundColor: '#172554',

@@ -1,8 +1,9 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.cjs.css';
-import { cw, wd, dm, gd, md } from '../../assets';
+import { cw, wd, dm, gd, md } from '/public';
 import { Box, Typography, Button } from '@mui/material';
+import Image from 'next/image';
 
 const Banners = [
     {
@@ -69,7 +70,7 @@ const Landing = () => {
                                     </Button>
                                 </Box>
                                 <Box sx={{ maxWidth: { xs: '100%', md: '50%' }, mt: { xs: 2, md: 0 }, mx: 16 }}>
-                                    <img src={banner.image} alt={banner.title} style={{ width: '100%', height: 'auto' }} />
+                                    <Image src={banner.image} alt={banner.title} style={{ width: '100%', height: 'auto' }} />
                                 </Box>
                             </Box>
                         </Slide>

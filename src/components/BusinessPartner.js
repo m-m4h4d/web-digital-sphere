@@ -11,7 +11,7 @@ const BusinessPartner = () => {
                 <Grid item sm={12} md={4}>
                     <Paper sx={{ p: 4, borderRadius: 0, height: '100%' }}>
                         <Typography variant="h5" component="h2" gutterBottom>
-                            "Turning Ideas Into Businesses"
+                            &quot;Turning Ideas Into Businesses&quot;
                         </Typography>
                         <Typography variant="body2">
                             Tackling your business bottlenecks with the top business branding services through organic traffic - to generate leads and a full conversion funnel with organic ranking. Stay entrusted with us for acquiring business solutions with profits and budget-friendly services.

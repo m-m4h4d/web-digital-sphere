@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button, Grid } from '@mui/material';
-import { w, imageicon, WebDesignServices, GraphicDesignServices, MarketingServices } from '../../assets';
+import { w, imageicon, WebDesignServices, GraphicDesignServices, MarketingServices } from '/public';
+import Image from 'next/image';
 
 const DigiBusiness = () => {
     return (
@@ -69,8 +70,8 @@ const DigiBusiness = () => {
                     </Grid>
                     <Grid item sm={12} md={6}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                            <img src={w} alt="w" style={{ position: 'absolute' }} />
-                            <img src={imageicon} alt="imageicon" style={{ animation: 'rotate 10s linear infinite', transformOrigin: 'center', transform: 'scale(0.8)' }} />
+                            <Image src={w} alt="w" layout="fill" objectFit="contain" />
+                            <Image src={imageicon} alt="imageicon" style={{ animation: 'rotate 10s linear infinite', transformOrigin: 'center', transform: 'scale(0.8)' }} />
                         </Box>
                     </Grid>
                 </Grid>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../../..';
-import { react } from '../../../../assets';
+import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../../../..';
+import { react } from '/public';
 
 const BusinessWebsiteDesign = () => {
     return (

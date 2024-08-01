@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
-import { Tri, TestingStage, RequirementsCollection, Prototype, IdentifyingTargetAudience, DiscussingWebDesignStrategy, DeploymentAndLaunch, DebuggingAndFeedbackMonitoring, BudgetPlanning } from '../../assets';
+import { Tri, TestingStage, RequirementsCollection, Prototype, IdentifyingTargetAudience, DiscussingWebDesignStrategy, DeploymentAndLaunch, DebuggingAndFeedbackMonitoring, BudgetPlanning } from '/public';
 
 const steps = [
     { id: 1, title: "Requirements Collection", icon: <RequirementsCollection height={60} />, description: "Identifying the vision and business needs of the company, we plan the key features and functionalities like web portfolio, product and service listing, job listing, online application, and event calendar. By requirements gathering, we can discuss its feasibility with the developers and designers team and how long it shall take to go live." },
