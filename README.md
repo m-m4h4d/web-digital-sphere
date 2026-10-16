@@ -27,6 +27,12 @@ This project uses the Next.js [App Router](https://nextjs.org/docs/app).
 - `src/components/` – shared UI sections (NavBar, Footer, carousels, FAQ, ...).
 - `src/assets/` – images and SVGs, exported from `src/assets/index.js`. SVGs are imported as React components via SVGR (see `next.config.mjs`).
 
+## Forms
+
+The Contact page and the "Get A Free Quote" modal submit through Server Actions in `src/lib/actions.js`, which validate the input and email it via [Resend](https://resend.com). Copy `.env.example` to `.env.local` and fill in `RESEND_API_KEY` and `CONTACT_TO_EMAIL` to receive submissions. Without them, submissions are printed to the terminal in development and rejected in production.
+
+The quote form accepts a PDF up to 10MB. Note that Vercel limits serverless request bodies to 4.5MB, so larger PDFs will fail there.
+
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to load Roboto, which is passed to MUI through the theme in `src/theme.js`.
 
 ## Learn More
