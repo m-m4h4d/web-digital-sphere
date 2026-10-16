@@ -50,9 +50,10 @@ function About() {
     };
 
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', my: 0, py: 0 }}>
+        // Top padding clears the fixed navbar (56px on phones, 64px from sm up).
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', mb: 0, pt: { xs: 7, sm: 8 } }}>
             <Grid container spacing={0} sx={{ width: '100%', alignItems: "center", my: 0, py: 0 }}>
-                <Grid item sm={12} md={6} sx={{ px: { md: 32, xs: 4 }, py: 0, my: 0 }}>
+                <Grid item xs={12} md={6} sx={{ px: { xs: 3, sm: 6, lg: 12 }, py: { xs: 4, md: 0 } }}>
                     <Typography variant="h3" component="h1" gutterBottom>
                         <b>About Us</b>
                     </Typography>
@@ -60,8 +61,8 @@ function About() {
                         WebDigitalSphere is an emerging IT-powered digital solutions provider, with strategies that are tailored to client&rsquo;s needs and goals. With a concentrated team of marketing experts, developers, writers & designers who work collaboratively to deliver revenue-generating outcomes.
                     </Typography>
                 </Grid>
-                <Grid item sm={12} md={6} sx={{ py: 0, my: 0 }}>
-                    <Image src={heronasa} alt="Hero NASA" style={{ width: "100%", height: "100%" }} />
+                <Grid item xs={12} md={6}>
+                    <Image src={heronasa} alt="Hero NASA" style={{ width: "100%", height: "auto", display: "block" }} />
                 </Grid>
             </Grid>
             <Box sx={{ width: "100%", my: 0, py: 0 }}>
