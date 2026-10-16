@@ -22,9 +22,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project uses the Next.js [App Router](https://nextjs.org/docs/app).
 
-- `src/app/` – routes. Each folder with a `page.js` is a URL (`/`, `/about`, `/contact`, `/web-development/business-website`). `layout.js` wraps every page with the NavBar and Footer.
+- `src/app/` – routes. Each folder with a `page.js` is a URL (`/`, `/about`, `/blogs`, `/blogs/[slug]`, `/career`, `/contact`, `/portfolio`, `/web-development/business-website`). `layout.js` wraps every page with the NavBar and Footer.
 - `src/views/` – the page content rendered by each route.
 - `src/components/` – shared UI sections (NavBar, Footer, carousels, FAQ, ...).
+- `src/data/` – site content: contact details, blog posts, job openings, portfolio projects and the country list. The contact, blog, careers and portfolio files hold **placeholder content** to replace before launch.
 - `src/assets/` – images and SVGs, exported from `src/assets/index.js`. SVGs are imported as React components via SVGR (see `next.config.mjs`).
 
 ## Forms
