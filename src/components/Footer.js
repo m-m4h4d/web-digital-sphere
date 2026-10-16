@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/material';
+import { Box, Container, Grid, Typography, Link, Divider } from '@mui/material';
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
 import { footer } from '@/assets';
 import { QuoteButton } from './QuoteModal';
+import LinkButton from './LinkButton';
 import contact from '@/data/contact';
 
 const Buttons = {
@@ -10,6 +11,14 @@ const Buttons = {
     'Company': ['About Us', 'Careers', 'Blogs', 'Contact Us'],
     'Hire Now': ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'],
 }
+
+// Footer buttons that have a page to go to; the rest stay as '#' for now.
+const footerLinks = {
+    'About Us': '/about',
+    'Careers': '/career',
+    'Blogs': '/blogs',
+    'Contact Us': '/contact',
+};
 
 const Footer = () => {
     return (
@@ -82,9 +91,9 @@ const Footer = () => {
                                 </Typography>
                                 {items.map((item, index) => (
                                     <Box key={index}>
-                                        <Button
+                                        <LinkButton
                                             variant="contained"
-                                            href="#"
+                                            href={footerLinks[item] ?? '#'}
                                             sx={{
                                                 borderRadius: 999,
                                                 backgroundColor: '#172554',
@@ -95,7 +104,7 @@ const Footer = () => {
                                             }}
                                         >
                                             {item}
-                                        </Button>
+                                        </LinkButton>
                                     </Box>
                                 ))}
                             </Grid>
