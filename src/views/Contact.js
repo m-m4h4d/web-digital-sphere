@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography, Box, TextField, Button, Grid, Paper } from '@mui/material';
+import { Typography, Box, Grid, Paper } from '@mui/material';
+import ContactForm from '@/components/Forms/ContactForm';
 
 const Contact = () => {
     return (
@@ -14,7 +15,7 @@ const Contact = () => {
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
-                        allowfullscreen=""
+                        allowFullScreen=""
                         loading="lazy"
                         title="Map"
                     />
@@ -24,21 +25,7 @@ const Contact = () => {
                     <Typography gutterBottom>
                         We would be happy to answer your questions, fill out the form and we shall respond promptly.
                     </Typography>
-                    <Box component="form" noValidate autoComplete="off" sx={{ my: 2 }}>
-                        <TextField fullWidth label="Your Name" margin="normal" />
-                        <TextField fullWidth label="Your Email" margin="normal" />
-                        <TextField fullWidth label="Your Subject" margin="normal" />
-                        <TextField
-                            fullWidth
-                            label="Add your message"
-                            multiline
-                            rows={4}
-                            margin="normal"
-                        />
-                        <Button variant="contained" sx={{ mt: 2, width: "100%" }}>
-                            Send
-                        </Button>
-                    </Box>
+                    <ContactForm />
                     <Paper elevation={4} sx={{ py: 4, my: 4 }}>
                         <Grid container spacing={4} sx={{ display: "flex", justifyContent: "space-evenly" }}>
                             <Grid item md={6}>

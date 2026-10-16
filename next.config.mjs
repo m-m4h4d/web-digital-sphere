@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: {
+      // Room for the 10MB PDF the quote form accepts, plus the other fields.
+      bodySizeLimit: "11mb",
+    },
+  },
   // Import .svg files as React components (e.g. <SEO height={60} />).
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.(".svg"));
