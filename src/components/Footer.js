@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/material';
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
 import { footer } from '@/assets';
+import { QuoteButton } from './QuoteModal';
 import Image from 'next/image';
 
 const Buttons = {
@@ -39,9 +40,9 @@ const Footer = () => {
                     <Typography variant='h6' sx={{ my: 1, mx: 14 }}>
                         Looking for answers and don&rsquo;t know where to begin? Plan your next venture with our expert guidance and consultancy.
                     </Typography>
-                    <Button variant="contained" sx={{ background: 'white', color: 'primary.main', '&:hover': { background: '#F0F9FF' }, mt: 3, py: 1.5 }}>
+                    <QuoteButton variant="contained" sx={{ background: 'white', color: 'primary.main', '&:hover': { background: '#F0F9FF' }, mt: 3, py: 1.5 }}>
                         Get Started Now
-                    </Button>
+                    </QuoteButton>
                 </Box>
             </Box>
             <Box sx={{ backgroundColor: '#292561', color: 'white', py: 16 }}>

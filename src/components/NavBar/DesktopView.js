@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { RequestQuote } from '../';
+import { useQuoteModal } from '../QuoteModal';
 import { ExpandLess, ExpandMore, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
 import { Typography, Box, Button, Menu, MenuItem, Divider, Grid, ListItemText } from '@mui/material';
 import {
@@ -79,9 +79,7 @@ const highlights = [
 ];
 
 function DesktopView() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const openQuote = useQuoteModal();
     const [anchorElHire, setAnchorElHire] = React.useState(null);
     const openHire = Boolean(anchorElHire);
     const [anchorElServices, setAnchorElServices] = React.useState(null);
@@ -315,10 +313,9 @@ function DesktopView() {
                     ))}
                 </Menu>
             </Box>
-            <Button variant='contained' sx={{ mx: 1 }} onClick={handleOpen}>
+            <Button variant='contained' sx={{ mx: 1 }} onClick={openQuote}>
                 <b>Get A Free Quote</b>
             </Button>
-            <RequestQuote open={open} onClose={handleClose} />
         </Box>
     );
 }

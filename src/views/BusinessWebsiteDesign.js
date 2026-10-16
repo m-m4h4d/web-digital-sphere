@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
-import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../components';
+import { Box, Typography } from '@mui/material';
+import { Testimonials, Industries, BusinessPartner, FAQ, Workflow, QuoteButton } from '@/components';
 import { react } from '@/assets';
 
 const BusinessWebsiteDesign = () => {
@@ -34,7 +34,7 @@ const BusinessWebsiteDesign = () => {
                 <Typography gutterBottom sx={{ maxWidth: '40%', textAlign: 'center', my: 1 }}>
                     Amplify your business websites with our in-house experts who possess high-performing development expertise. Boost your brand recognition and sales by working with our business website company that will accompany you to your success.
                 </Typography>
-                <Button variant="contained" size="large" sx={{ my: 2 }}>Request A Quote</Button>
+                <QuoteButton variant="contained" size="large" sx={{ my: 2 }}>Request A Quote</QuoteButton>
             </Box>
             <BusinessPartner />
             <Testimonials />
