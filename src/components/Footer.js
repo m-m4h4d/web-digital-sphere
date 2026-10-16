@@ -4,7 +4,6 @@ import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
 import { footer } from '@/assets';
 import { QuoteButton } from './QuoteModal';
 import contact from '@/data/contact';
-import Image from 'next/image';
 
 const Buttons = {
     'Services': ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'],
@@ -15,30 +14,24 @@ const Buttons = {
 const Footer = () => {
     return (
         <footer>
-            <Box sx={{ position: 'relative', backgroundColor: '#F0F9FF', py: 17 }}>
-                <Image src={footer} alt="footer" style={{
-                    borderRadius: 19,
-                    width: '50%',
-                    position: 'absolute',
-                    top: 60,
-                    left: '50%',
-                    transform: 'translateX(-50%)'
-                }} />
+            {/* Equal top and bottom padding puts the color split at the card's midpoint. */}
+            <Box sx={{ background: 'linear-gradient(to bottom, #F0F9FF 50%, #292561 50%)', px: 2, py: 8 }}>
                 <Box sx={{
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    textAlign: 'center',
-                    position: 'absolute',
-                    top: 50,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
+                    maxWidth: 900,
+                    mx: 'auto',
+                    borderRadius: '19px',
+                    backgroundImage: `url(${footer.src})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                     color: 'white',
-                    py: 4,
+                    textAlign: 'center',
+                    px: { xs: 3, sm: 6, md: 10 },
+                    py: { xs: 5, md: 7 },
                 }}>
                     <Typography variant="h4">
                         <b>Have A Project In Mind?</b>
                     </Typography>
-                    <Typography variant='h6' sx={{ my: 1, mx: 14 }}>
+                    <Typography variant='h6' sx={{ my: 1 }}>
                         Looking for answers and don&rsquo;t know where to begin? Plan your next venture with our expert guidance and consultancy.
                     </Typography>
                     <QuoteButton variant="contained" sx={{ background: 'white', color: 'primary.main', '&:hover': { background: '#F0F9FF' }, mt: 3, py: 1.5 }}>
@@ -46,7 +39,7 @@ const Footer = () => {
                     </QuoteButton>
                 </Box>
             </Box>
-            <Box sx={{ backgroundColor: '#292561', color: 'white', py: 16 }}>
+            <Box sx={{ backgroundColor: '#292561', color: 'white', pt: { xs: 4, md: 6 }, pb: 16 }}>
                 <Container>
                     <Grid container spacing={1}>
                         <Grid item xs={12} sm={6} md={3}>
