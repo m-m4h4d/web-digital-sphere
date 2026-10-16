@@ -27,7 +27,7 @@ This project uses the Next.js [App Router](https://nextjs.org/docs/app).
 - `src/components/` – shared UI sections (NavBar, Footer, carousels, FAQ, ...).
 - `src/assets/` – images and SVGs, exported from `src/assets/index.js`. SVGs are imported as React components via SVGR (see `next.config.mjs`).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to load Roboto, which is passed to MUI through the theme in `src/theme.js`.
 
 ## Learn More
 
