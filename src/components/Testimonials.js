@@ -5,17 +5,18 @@ import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.cjs.css';
 import { Box, Paper, Avatar, Card, CardContent, CardHeader, Typography } from '@mui/material';
 
+// Placeholder names. Replace with real clients (with their permission) before launch.
 const Testimonies = [
     {
-        name: 'Matt Wittey, Austria',
+        name: 'Client A, City',
         text: '"It was a thrilling experience with Web Digital Sphere for their amazing and advantageous graphic design services. They amazed me with their on-time delivery, creative graphic designs. and pondering of descriptions. I\'d be delighted for future collaborations with you guys for more digital graphic designs!"'
     },
     {
-        name: 'Shirley Johnson, New York',
+        name: 'Client B, City',
         text: '"Web Digital Sphere has played a key role in my business\'s digital presence with its smart marketing tactics. I can rely on them for long-lasting business profits!"'
     },
     {
-        name: 'Sam Wilson, Finland',
+        name: 'Client C, City',
         text: '"I rely on Web Digital Sphere for extending my small mobile app development agency into a company providing custom mobile app development services with enterprise solutions!"'
     }
 ]
