@@ -1,14 +1,49 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/material';
+import NextLink from 'next/link';
+import { Box, Container, Grid, Typography, Link, Divider } from '@mui/material';
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
 import { footer } from '@/assets';
 import { QuoteButton } from './QuoteModal';
+import LinkButton from './LinkButton';
 import contact from '@/data/contact';
 
 const Buttons = {
     'Services': ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'],
     'Company': ['About Us', 'Careers', 'Blogs', 'Contact Us'],
     'Hire Now': ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'],
+}
+
+const companyLinks = {
+    'About Us': '/about',
+    'Careers': '/career',
+    'Blogs': '/blogs',
+    'Contact Us': '/contact',
+};
+
+const socialProfiles = [
+    { key: 'facebook', label: 'Facebook', icon: <Facebook /> },
+    { key: 'instagram', label: 'Instagram', icon: <Instagram /> },
+    { key: 'x', label: 'X', icon: <X /> },
+    { key: 'linkedin', label: 'LinkedIn', icon: <LinkedIn /> },
+].filter(({ key }) => contact.social[key]);
+
+const pillSx = {
+    borderRadius: 999,
+    backgroundColor: '#172554',
+    '&:hover': { backgroundColor: 'primary.main' },
+    mb: 1,
+    ml: 1,
+    boxShadow: 'none',
+};
+
+// Services open the portfolio filtered to that service, Company items go to
+// their pages, and Hire Now items open the quote form.
+function FooterButton({ section, item }) {
+    if (section === 'Hire Now') {
+        return <QuoteButton variant="contained" sx={pillSx}>{item}</QuoteButton>;
+    }
+    const href = section === 'Services' ? `/portfolio?service=${encodeURIComponent(item)}` : companyLinks[item];
+    return <LinkButton variant="contained" href={href} sx={pillSx}>{item}</LinkButton>;
 }
 
 const Footer = () => {
@@ -47,20 +82,15 @@ const Footer = () => {
                                 <Typography variant="h3" gutterBottom color="primary.main">
                                     <b>LOGO</b>
                                 </Typography>
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: "80%" }}>
-                                    <Link href="#" color="inherit">
-                                        <Facebook />
-                                    </Link>
-                                    <Link href="#" color="inherit">
-                                        <Instagram />
-                                    </Link>
-                                    <Link href="#" color="inherit">
-                                        <X />
-                                    </Link>
-                                    <Link href="#" color="inherit">
-                                        <LinkedIn />
-                                    </Link>
-                                </Box>
+                                {socialProfiles.length > 0 && (
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', width: "80%" }}>
+                                        {socialProfiles.map(({ key, label, icon }) => (
+                                            <Link key={key} href={contact.social[key]} target="_blank" rel="noopener noreferrer" color="inherit" aria-label={label}>
+                                                {icon}
+                                            </Link>
+                                        ))}
+                                    </Box>
+                                )}
                                 <Typography variant="h5" sx={{ mt: 2 }}>
                                     Address
                                 </Typography>
@@ -82,20 +112,7 @@ const Footer = () => {
                                 </Typography>
                                 {items.map((item, index) => (
                                     <Box key={index}>
-                                        <Button
-                                            variant="contained"
-                                            href="#"
-                                            sx={{
-                                                borderRadius: 999,
-                                                backgroundColor: '#172554',
-                                                '&:hover': { backgroundColor: 'primary.main' },
-                                                mb: 1,
-                                                ml: 1,
-                                                boxShadow: 'none'
-                                            }}
-                                        >
-                                            {item}
-                                        </Button>
+                                        <FooterButton section={section} item={item} />
                                     </Box>
                                 ))}
                             </Grid>
@@ -107,12 +124,8 @@ const Footer = () => {
                             © 2024 Web Digital Sphere. All rights reserved.
                         </Typography>
                         <Typography variant="body2" color="inherit">
-                            <Link href="#" color="inherit" sx={{ textDecoration: 'none' }}>
-                                Terms and Conditions
-                            </Link>{' '} | {' '}
-                            <Link href="#" color="inherit" sx={{ textDecoration: 'none' }}>
-                                Privacy Policy
-                            </Link>
+                            <NextLink href="/terms">Terms and Conditions</NextLink>{' '} | {' '}
+                            <NextLink href="/privacy">Privacy Policy</NextLink>
                         </Typography>
                     </Box>
                 </Container>
