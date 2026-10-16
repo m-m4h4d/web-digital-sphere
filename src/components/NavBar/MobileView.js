@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { RequestQuote } from '../';
+import { useQuoteModal } from '../QuoteModal';
 import { ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
 import { Typography, Box, Button, MenuItem, Divider, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
@@ -53,9 +53,7 @@ const serviceOptions = {
 }
 
 function MobileView() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const openQuote = useQuoteModal();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [expanded, setExpanded] = React.useState(false);
     const servicesRef = React.useRef(null);
@@ -206,14 +204,13 @@ function MobileView() {
                             </AccordionDetails>
                         </Accordion>
                         <MenuItem>
-                            <Button variant='contained' onClick={handleOpen} sx={{ mx: 1 }}>
+                            <Button variant='contained' onClick={() => { handleCloseNavMenu(); openQuote(); }} sx={{ mx: 1 }}>
                                 <b>Get A Free Quote</b>
                             </Button>
                         </MenuItem>
                     </Paper>
                 )}
             </Box>
-            <RequestQuote open={open} onClose={handleClose} />
         </>
     );
 }
