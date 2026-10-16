@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { BusinessPartner } from '../components';
-import { heronasa, image, plan, reach } from '/public';
+import { heronasa, image, plan, reach } from '@/assets';
 import Image from 'next/image';
 
 const items = [
@@ -39,7 +41,7 @@ function About() {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundImage: `url(${items[index].image})`,
+            backgroundImage: `url(${items[index].image.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'brightness(1)',
@@ -81,10 +83,10 @@ function About() {
                         </Typography>
                     ))}
                 </Box>
-                <div key={index} style={style}>
+                <Box key={index} sx={style}>
                     <Typography variant="h4" component="h2" sx={{ my: 2 }}><b>{items[index].title}</b></Typography>
                     <Typography sx={{ maxWidth: '45%', textAlign: 'center' }}>{items[index].description}</Typography>
-                </div>
+                </Box>
             </Box>
             <Box sx={{ background: "#F0F9FF", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", py: 8, my: 0 }}>
                 <Box sx={{ width: "70%", my: 4 }}>

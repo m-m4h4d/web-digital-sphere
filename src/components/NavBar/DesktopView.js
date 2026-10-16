@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
 import { RequestQuote } from '../';
 import { ExpandLess, ExpandMore, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
 import { Typography, Box, Button, Menu, MenuItem, Divider, Grid, ListItemText } from '@mui/material';
@@ -22,7 +25,7 @@ import {
     TechnicalWritingServices,
     ResearchAndAnalysis,
     ElearningContent
-} from '/public';
+} from '@/assets';
 
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
 const services = ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'];
@@ -81,7 +84,7 @@ function DesktopView() {
     const handleClose = () => setOpen(false);
     const [anchorElHire, setAnchorElHire] = React.useState(null);
     const openHire = Boolean(anchorElHire);
-    const [anchorElServices, setAnchorElServices] = React.useState('Digital Marketing');
+    const [anchorElServices, setAnchorElServices] = React.useState(null);
     const openServices = Boolean(anchorElServices);
     const [currentService, setCurrentService] = React.useState('Digital Marketing');
 
@@ -130,7 +133,7 @@ function DesktopView() {
     return (
         <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }, justifyContent: 'center', p: 0, m: 0, alignItems: 'center' }}>
             <Box sx={{ justifyContent: 'center', alignItems: 'center', display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' } }}>
-                <Typography variant='h3' sx={{ flexGrow: 1, mx: 1, textDecoration: "none", cursor: "pointer", color: "black" }}>LOGO</Typography>
+                <Typography variant='h3' component={Link} href='/' sx={{ flexGrow: 1, mx: 1, textDecoration: "none", cursor: "pointer", color: "black" }}>LOGO</Typography>
             </Box>
             <Box
                 onMouseEnter={handleMouseEnterServices}
@@ -211,7 +214,7 @@ function DesktopView() {
                                         <Grid item md={6} key={index} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                                             <Box sx={{ display: 'flex' }}>
                                                 {option.icon}
-                                                <Typography variant='body2' onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
+                                                <Typography variant='body2' component={option.link ? Link : 'span'} href={option.link} onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
                                                     <b>{option.label}</b>
                                                 </Typography>
                                             </Box>
@@ -240,7 +243,7 @@ function DesktopView() {
                 </Menu>
             </Box>
             {pages.map((page) => (
-                <Button sx={{ color: 'black', mx: 1 }} key={page}>
+                <Button component={Link} href={page.link} sx={{ color: 'black', mx: 1 }} key={page.label}>
                     <b>{page.label}</b>
                 </Button>
             ))}

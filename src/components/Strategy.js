@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Typography, Button } from '@mui/material';
-import { agile } from '/public';
+import { agile } from '@/assets';
 import Image from 'next/image';
 
 const Strategy = () => {

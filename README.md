@@ -18,7 +18,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
+
+This project uses the Next.js [App Router](https://nextjs.org/docs/app).
+
+- `src/app/` – routes. Each folder with a `page.js` is a URL (`/`, `/about`, `/contact`, `/web-development/business-website`). `layout.js` wraps every page with the NavBar and Footer.
+- `src/views/` – the page content rendered by each route.
+- `src/components/` – shared UI sections (NavBar, Footer, carousels, FAQ, ...).
+- `src/assets/` – images and SVGs, exported from `src/assets/index.js`. SVGs are imported as React components via SVGR (see `next.config.mjs`).
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 

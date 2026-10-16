@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button, Grid } from '@mui/material';
-import { w, imageicon, WebDesignServices, GraphicDesignServices, MarketingServices } from '/public';
+import { w, imageicon, WebDesignServices, GraphicDesignServices, MarketingServices } from '@/assets';
 import Image from 'next/image';
 
 const DigiBusiness = () => {
