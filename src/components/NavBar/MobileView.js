@@ -197,7 +197,7 @@ function MobileView() {
                             </AccordionSummary>
                             <AccordionDetails sx={{ my: 0, py: 0 }}>
                                 {hireOptions.map((option) => (
-                                    <MenuItem key={option} onClick={handleChange('panel2')} sx={{ color: 'black' }}>
+                                    <MenuItem key={option} onClick={() => { handleCloseNavMenu(); openQuote(); }} sx={{ color: 'black' }}>
                                         <Typography textAlign="center">{option}</Typography>
                                     </MenuItem>
                                 ))}

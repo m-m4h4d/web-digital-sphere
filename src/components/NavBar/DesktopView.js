@@ -80,6 +80,10 @@ const highlights = [
 
 function DesktopView() {
     const openQuote = useQuoteModal();
+    // A Hire Now pick opens the quote form only once the menu has finished
+    // closing: opening one MUI modal while another is still exiting leaves
+    // the page aria-hidden after both close.
+    const quoteAfterHireClose = React.useRef(false);
     const [anchorElHire, setAnchorElHire] = React.useState(null);
     const openHire = Boolean(anchorElHire);
     const [anchorElServices, setAnchorElServices] = React.useState(null);
@@ -260,6 +264,14 @@ function DesktopView() {
                     anchorEl={anchorElHire}
                     open={openHire}
                     onClose={handleMouseLeaveHire}
+                    TransitionProps={{
+                        onExited: () => {
+                            if (quoteAfterHireClose.current) {
+                                quoteAfterHireClose.current = false;
+                                openQuote();
+                            }
+                        },
+                    }}
                     MenuListProps={{
                         onMouseLeave: handleMouseLeaveHire,
                         sx: {
@@ -298,7 +310,7 @@ function DesktopView() {
                     {hireOptions.map((option) => (
                         <MenuItem
                             key={option}
-                            onClick={handleMouseLeaveHire}
+                            onClick={() => { quoteAfterHireClose.current = true; handleMouseLeaveHire(); }}
                             sx={{
                                 display: 'flex',
                                 flexDirection: 'column',
