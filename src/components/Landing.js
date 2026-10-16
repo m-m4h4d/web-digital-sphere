@@ -1,8 +1,11 @@
+'use client';
+
 import React from 'react';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.cjs.css';
-import { cw, wd, dm, gd, md } from '/public';
-import { Box, Typography, Button } from '@mui/material';
+import { cw, wd, dm, gd, md } from '@/assets';
+import { Box, Typography } from '@mui/material';
+import { QuoteButton } from './QuoteModal';
 import Image from 'next/image';
 
 const Banners = [
@@ -65,9 +68,9 @@ const Landing = () => {
                                     <Typography variant="body2" gutterBottom>
                                         {banner.subtitle}
                                     </Typography>
-                                    <Button variant="contained" sx={{ p: 2, mt: 2 }}>
+                                    <QuoteButton variant="contained" sx={{ p: 2, mt: 2 }}>
                                         <b>Get A Quote</b>
-                                    </Button>
+                                    </QuoteButton>
                                 </Box>
                                 <Box sx={{ maxWidth: { xs: '100%', md: '50%' }, mt: { xs: 2, md: 0 }, mx: 16 }}>
                                     <Image src={banner.image} alt={banner.title} style={{ width: '100%', height: 'auto' }} />

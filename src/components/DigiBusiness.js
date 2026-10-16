@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Typography, Button, Grid } from '@mui/material';
-import { w, imageicon, WebDesignServices, GraphicDesignServices, MarketingServices } from '/public';
+import { Box, Typography, Grid } from '@mui/material';
+import LinkButton from './LinkButton';
+import { w, imageicon, WebDesignServices, GraphicDesignServices, MarketingServices } from '@/assets';
 import Image from 'next/image';
 
 const DigiBusiness = () => {
@@ -63,9 +64,9 @@ const DigiBusiness = () => {
                             <Typography variant="body1" sx={{ mt: 4 }}>
                                 To get our services now,
                             </Typography>
-                            <Button variant="contained" color="primary" sx={{ mt: 2 }}>
+                            <LinkButton href="/contact" variant="contained" color="primary" sx={{ mt: 2 }}>
                                 Get In Touch
-                            </Button>
+                            </LinkButton>
                         </Box>
                     </Grid>
                     <Grid item sm={12} md={6}>

@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Divider, Typography } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
@@ -66,6 +68,7 @@ function FAQ() {
             <Box sx={{ width: '100%' }}>
                 {FAQs.map(({ panelId, question, answer }) => (
                     <Accordion
+                        key={panelId}
                         expanded={expanded === panelId}
                         onChange={handleChange(panelId)}
                         sx={{ mb: 2 }}
