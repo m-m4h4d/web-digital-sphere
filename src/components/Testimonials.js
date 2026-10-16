@@ -51,12 +51,13 @@ const Testimonials = () => {
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={125}
+                isIntrinsicHeight
                 totalSlides={3}
                 isPlaying={true}
                 interval={3000}
                 style={{ bgcolor: '#F0F9FF' }}
             >
-                <Typography variant='h3' textAlign={'center'} sx={{ my: 4 }}>
+                <Typography variant='h3' component='h2' textAlign={'center'} sx={{ my: 4, px: 2 }}>
                     <b>Testimonials</b>
                 </Typography>
                 <Paper
@@ -66,13 +67,14 @@ const Testimonials = () => {
                         justifyContent: 'center',
                         display: 'flex',
                         bgcolor: 'inherit',
-                        width: '100%'
+                        width: '100%',
+                        px: 2
                     }}>
-                    <Slider style={{ height: 300, width: 750 }}>
+                    <Slider style={{ width: '100%', maxWidth: 750 }}>
                         {Testimonies.map((testimonial, index) => (
                             <Slide index={index} key={index}>
-                                <Card sx={{ display: 'flex', justifyContent: 'space-around', borderRadius: 6, m: 1 }}>
-                                    <Box sx={{ pr: 8 }}>
+                                <Card sx={{ display: 'flex', justifyContent: 'space-around', borderRadius: 6, m: 1, height: 'calc(100% - 16px)' }}>
+                                    <Box sx={{ pr: { xs: 1, md: 8 } }}>
                                         <CardContent>
                                             <Typography variant="body1" component="p">
                                                 {testimonial.text}
@@ -83,10 +85,11 @@ const Testimonials = () => {
                                     <Avatar
                                         {...stringAvatar(testimonial.name)}
                                         sx={{
-                                            width: 100,
-                                            height: 100,
-                                            right: 30,
-                                            top: 20,
+                                            width: { xs: 56, md: 100 },
+                                            height: { xs: 56, md: 100 },
+                                            flexShrink: 0,
+                                            mr: { xs: 2, md: 4 },
+                                            mt: 2.5,
                                             bgcolor: stringToColor(testimonial.name)
                                         }} />
                                 </Card>

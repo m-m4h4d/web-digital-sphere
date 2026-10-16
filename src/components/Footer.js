@@ -32,7 +32,6 @@ const pillSx = {
     backgroundColor: '#172554',
     '&:hover': { backgroundColor: 'primary.main' },
     mb: 1,
-    ml: 1,
     boxShadow: 'none',
 };
 
@@ -107,7 +106,7 @@ const Footer = () => {
                         </Grid>
                         {Object.entries(Buttons).map(([section, items]) => (
                             <Grid item xs={12} sm={6} md={3} key={section}>
-                                <Typography variant="h6" gutterBottom sx={{ ml: 1 }}>
+                                <Typography variant="h6" gutterBottom>
                                     <b>{section}</b>
                                 </Typography>
                                 {items.map((item, index) => (
@@ -119,7 +118,7 @@ const Footer = () => {
                         ))}
                     </Grid>
                     <Divider sx={{ borderColor: 'inherit', mt: 3 }} />
-                    <Box sx={{ textAlign: 'center', mt: 2, flexDirection: 'row', display: 'flex', justifyContent: 'space-between' }}>
+                    <Box sx={{ textAlign: 'center', mt: 2, flexDirection: { xs: 'column', sm: 'row' }, gap: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography variant="body2" color="inherit">
                             © 2024 Web Digital Sphere. All rights reserved.
                         </Typography>

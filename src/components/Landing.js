@@ -43,24 +43,25 @@ const Banners = [
 
 const Landing = () => {
     return (
-        <Box>
+        <Box sx={{ width: '100%' }}>
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={125}
+                isIntrinsicHeight
                 totalSlides={5}
                 isPlaying={true}
                 interval={3000}
             >
-                <Slider style={{ width: "99vw", height: "100vh" }}>
+                <Slider style={{ width: "100%" }}>
                     {Banners.map((banner, index) => (
                         <Slide index={index} key={index}>
-                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-around', px: 6 }}>
-                                <Box sx={{ maxWidth: { xs: '100%', md: '50%' }, textAlign: { xs: 'center', md: 'left' }, mx: 12 }}>
-                                    <Typography variant="h2" component="h1" sx={{ color: "primary.main" }}>
-                                        <b>{banner.title}</b>
+                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-around', px: { xs: 3, md: 4 }, py: { xs: 4, md: 8 }, gap: { xs: 4, md: 8 }, maxWidth: 1216, mx: 'auto' }}>
+                                <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'left' } }}>
+                                    <Typography variant="h2" component="h1" sx={{ color: "primary.main", fontWeight: 700 }}>
+                                        {banner.title}
                                     </Typography>
-                                    <Typography variant="h2" component="h1" gutterBottom>
-                                        <b>Services</b>
+                                    <Typography variant="h2" component="p" gutterBottom sx={{ fontWeight: 700 }}>
+                                        Services
                                     </Typography>
                                     <Typography variant="body1" gutterBottom>
                                         {banner.description}
@@ -72,7 +73,7 @@ const Landing = () => {
                                         <b>Get A Quote</b>
                                     </QuoteButton>
                                 </Box>
-                                <Box sx={{ maxWidth: { xs: '100%', md: '50%' }, mt: { xs: 2, md: 0 }, mx: 16 }}>
+                                <Box sx={{ flex: 1, width: '100%', maxWidth: { xs: 420, md: 560 } }}>
                                     <Image src={banner.image} alt={banner.title} style={{ width: '100%', height: 'auto' }} />
                                 </Box>
                             </Box>
