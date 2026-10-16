@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { MobileView, DesktopView  } from '..';
 import { AppBar, Container, Toolbar } from '@mui/material';

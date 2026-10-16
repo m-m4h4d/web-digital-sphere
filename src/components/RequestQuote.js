@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Box, Button, Grid, Typography, Modal, TextField, MenuItem } from '@mui/material';
 import { PhoneOutlined, EmailOutlined, CalendarMonthOutlined } from '@mui/icons-material';

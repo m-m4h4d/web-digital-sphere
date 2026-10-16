@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../components';
-import { react } from '/public';
+import { react } from '@/assets';
 
 const BusinessWebsiteDesign = () => {
     return (
@@ -22,7 +22,7 @@ const BusinessWebsiteDesign = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: `url(${react})`,
+                    backgroundImage: `url(${react.src})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     filter: 'brightness(0.2)',
