@@ -3,6 +3,7 @@ import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/ma
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
 import { footer } from '@/assets';
 import { QuoteButton } from './QuoteModal';
+import contact from '@/data/contact';
 import Image from 'next/image';
 
 const Buttons = {
@@ -73,10 +74,10 @@ const Footer = () => {
 
                                 <Box sx={{ mt: 2, flexDirection: 'row', display: 'flex' }}>
                                     <Typography variant="h4" sx={{ mr: 2 }}>
-                                        <b>PK</b>
+                                        <b>{contact.countryCode}</b>
                                     </Typography>
                                     <Typography variant="body2">
-                                        123 Example Street, Suite 100, Anytown, USA
+                                        {contact.address}
                                     </Typography>
                                 </Box>
                             </Box>

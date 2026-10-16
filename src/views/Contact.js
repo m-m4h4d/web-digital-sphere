@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, Box, Grid, Paper } from '@mui/material';
+import { Typography, Box, Grid, Paper, Link } from '@mui/material';
+import { MapOutlined } from '@mui/icons-material';
+import contact, { mailtoHref, telHref } from '@/data/contact';
 import ContactForm from '@/components/Forms/ContactForm';
 
 const Contact = () => {
@@ -11,14 +13,22 @@ const Contact = () => {
             </Typography>
             <Grid container spacing={4} sx={{ mt: 4 }}>
                 <Grid item xs={12} md={6}>
-                    <iframe src="about:blank"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        title="Map"
-                    />
+                    {contact.mapEmbedUrl ? (
+                        <iframe
+                            src={contact.mapEmbedUrl}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, minHeight: 360 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            title="Map"
+                        />
+                    ) : (
+                        <Box sx={{ height: '100%', minHeight: 360, bgcolor: '#F0F9FF', border: '1px dashed', borderColor: 'primary.light', borderRadius: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: 'primary.main', p: 4 }}>
+                            <MapOutlined sx={{ fontSize: 64 }} />
+                            <Typography variant="body2" sx={{ mt: 1 }}>{contact.address}</Typography>
+                        </Box>
+                    )}
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Typography variant="h4" gutterBottom sx={{ mt: 2 }}><b>Get In Touch.</b></Typography>
@@ -31,17 +41,17 @@ const Contact = () => {
                             <Grid item md={6}>
                                 <Typography ><b>ADDRESS</b></Typography>
                                 <Typography variant='body2' gutterBottom>
-                                    Web Digital Sphere, 123 Example Street, Suite 100, Anytown, USA
+                                    {contact.company}, {contact.address}
                                 </Typography>
                             </Grid>
                             <Grid item md={5}>
                                 <Typography ><b>EMAIL</b></Typography>
                                 <Typography variant='body2' gutterBottom>
-                                    hello@example.com
+                                    <Link href={mailtoHref} color="inherit">{contact.email}</Link>
                                 </Typography>
                                 <Typography ><b>PHONE</b></Typography>
                                 <Typography variant='body2' gutterBottom>
-                                    +1 (555) 010-0000
+                                    <Link href={telHref} color="inherit">{contact.phone}</Link>
                                 </Typography>
                             </Grid>
                         </Grid>
