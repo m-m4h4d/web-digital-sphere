@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
-import { RequestQuote } from '../';
+import Link from 'next/link';
+import { useQuoteModal } from '../QuoteModal';
 import { ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
 import { Typography, Box, Button, MenuItem, Divider, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
@@ -29,7 +32,7 @@ const serviceOptions = {
     ],
 
     'Web Development': [
-        'Business Website Design',
+        { label: 'Business Website Design', link: '/web-development/business-website' },
         'ECommerce Web Design',
         'Landing Page Design',
         'Dropshipping Website',
@@ -50,9 +53,7 @@ const serviceOptions = {
 }
 
 function MobileView() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const openQuote = useQuoteModal();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [expanded, setExpanded] = React.useState(false);
     const servicesRef = React.useRef(null);
@@ -90,7 +91,7 @@ function MobileView() {
     return (
         <>
             <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%', cursor: 'pointer', textDecoration: "none" }}>
-                <Typography variant='h3' sx={{ flexGrow: 1, mx: 1, color: 'black', textDecoration: 'none', cursor: 'pointer' }}>LOGO</Typography>
+                <Typography variant='h3' component={Link} href='/' sx={{ flexGrow: 1, mx: 1, color: 'black', textDecoration: 'none', cursor: 'pointer' }}>LOGO</Typography>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
                 <IconButton
@@ -125,10 +126,11 @@ function MobileView() {
                             overflowY: 'auto'
                         }}
                     >
-                        {pages.map((page, index) => (
-                            <>
+                        {pages.map((page) => (
+                            <React.Fragment key={page.label}>
                                 <MenuItem
-                                    key={index}
+                                    component={Link}
+                                    href={page.link}
                                     onClick={handleCloseNavMenu}
                                     sx={{
                                         color: 'primary.main',
@@ -141,7 +143,7 @@ function MobileView() {
                                     <Typography textAlign="center">{page.label}</Typography>
                                 </MenuItem>
                                 <Divider />
-                            </>
+                            </React.Fragment>
                         ))}
                         <Accordion
                             expanded={expanded === 'panel1'}
@@ -163,11 +165,18 @@ function MobileView() {
                                             <Typography>{service}</Typography>
                                         </MenuItem>
                                         <Box sx={{ display: 'flex', flexDirection: 'column', pl: 2 }}>
-                                            {serviceOptions[service].map((subOption) => (
-                                                <MenuItem key={subOption} onClick={handleChange('panel1')}>
-                                                    <Typography sx={{ color: 'primary.main' }}>{subOption}</Typography>
-                                                </MenuItem>
-                                            ))}
+                                            {serviceOptions[service].map((subOption) => {
+                                                const { label, link } = typeof subOption === 'string' ? { label: subOption } : subOption;
+                                                return link ? (
+                                                    <MenuItem key={label} component={Link} href={link} onClick={handleCloseNavMenu}>
+                                                        <Typography sx={{ color: 'primary.main' }}>{label}</Typography>
+                                                    </MenuItem>
+                                                ) : (
+                                                    <MenuItem key={label} onClick={handleChange('panel1')}>
+                                                        <Typography sx={{ color: 'primary.main' }}>{label}</Typography>
+                                                    </MenuItem>
+                                                );
+                                            })}
                                         </Box>
                                     </React.Fragment>
                                 ))}
@@ -195,14 +204,13 @@ function MobileView() {
                             </AccordionDetails>
                         </Accordion>
                         <MenuItem>
-                            <Button variant='contained' onClick={handleOpen} sx={{ mx: 1 }}>
+                            <Button variant='contained' onClick={() => { handleCloseNavMenu(); openQuote(); }} sx={{ mx: 1 }}>
                                 <b>Get A Free Quote</b>
                             </Button>
                         </MenuItem>
                     </Paper>
                 )}
             </Box>
-            <RequestQuote open={open} onClose={handleClose} />
         </>
     );
 }

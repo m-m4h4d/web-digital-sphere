@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Typography, Button } from '@mui/material';
-import { agile } from '/public';
+import { Container, Typography } from '@mui/material';
+import LinkButton from './LinkButton';
+import { agile } from '@/assets';
 import Image from 'next/image';
 
 const Strategy = () => {
@@ -14,9 +15,9 @@ const Strategy = () => {
             <Typography variant="body2" component="p" sx={{ mt: 4 }}>
                 To benefit from our work ethics act now,
             </Typography>
-            <Button variant="contained" color="primary" sx={{ py: 1.5, mt: 1 }}>
+            <LinkButton href="/contact" variant="contained" color="primary" sx={{ py: 1.5, mt: 1 }}>
                 Get in Touch
-            </Button>
+            </LinkButton>
         </Container>
     );
 };

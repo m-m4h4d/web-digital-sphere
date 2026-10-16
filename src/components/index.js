@@ -12,6 +12,8 @@ import DesktopView from './NavBar/DesktopView';
 import RequestQuote from './RequestQuote';
 import FAQ from './FAQ';
 import Workflow from './Workflow';
+import { QuoteModalProvider, QuoteButton, useQuoteModal } from './QuoteModal';
+import LinkButton from './LinkButton';
 
 export {
     Strategy,
@@ -28,4 +30,8 @@ export {
     RequestQuote,
     FAQ,
     Workflow,
+    QuoteModalProvider,
+    QuoteButton,
+    useQuoteModal,
+    LinkButton,
 };
