@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, Box, Grid, Paper } from '@mui/material';
+import { Typography, Box, Grid, Paper, Link } from '@mui/material';
+import { MapOutlined } from '@mui/icons-material';
+import contact, { mailtoHref, telHref } from '@/data/contact';
 import ContactForm from '@/components/Forms/ContactForm';
 
 const Contact = () => {
@@ -11,14 +13,22 @@ const Contact = () => {
             </Typography>
             <Grid container spacing={4} sx={{ mt: 4 }}>
                 <Grid item xs={12} md={6}>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1660.7441100258538!2d72.9578780792184!3d33.64450947893183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df96381026fb8b%3A0x6500195867b615b6!2sShakeel%20Arcade%2C%2085%20Street%2085%2C%20G-13%2F1%20G%2013%2F1%20G-13%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1721907405185!5m2!1sen!2s"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        title="Map"
-                    />
+                    {contact.mapEmbedUrl ? (
+                        <iframe
+                            src={contact.mapEmbedUrl}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, minHeight: 360 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            title="Map"
+                        />
+                    ) : (
+                        <Box sx={{ height: '100%', minHeight: 360, bgcolor: '#F0F9FF', border: '1px dashed', borderColor: 'primary.light', borderRadius: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: 'primary.main', p: 4 }}>
+                            <MapOutlined sx={{ fontSize: 64 }} />
+                            <Typography variant="body2" sx={{ mt: 1 }}>{contact.address}</Typography>
+                        </Box>
+                    )}
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Typography variant="h4" gutterBottom sx={{ mt: 2 }}><b>Get In Touch.</b></Typography>
@@ -31,17 +41,17 @@ const Contact = () => {
                             <Grid item md={6}>
                                 <Typography ><b>ADDRESS</b></Typography>
                                 <Typography variant='body2' gutterBottom>
-                                    HCI Expert PVT LTD, Office # 8, Shakeel Arcade, Street # 85, Sector G-13/1, Islamabad, Capital Territory, Pakistan
+                                    {contact.company}, {contact.address}
                                 </Typography>
                             </Grid>
                             <Grid item md={5}>
                                 <Typography ><b>EMAIL</b></Typography>
                                 <Typography variant='body2' gutterBottom>
-                                    fakhar@hciexpert.com
+                                    <Link href={mailtoHref} color="inherit">{contact.email}</Link>
                                 </Typography>
                                 <Typography ><b>PHONE</b></Typography>
                                 <Typography variant='body2' gutterBottom>
-                                    +92 300 5674006
+                                    <Link href={telHref} color="inherit">{contact.phone}</Link>
                                 </Typography>
                             </Grid>
                         </Grid>

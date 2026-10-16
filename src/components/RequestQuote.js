@@ -4,6 +4,7 @@ import React from 'react';
 import { Box, Grid, Typography, Modal } from '@mui/material';
 import { PhoneOutlined, EmailOutlined, CalendarMonthOutlined } from '@mui/icons-material';
 import QuoteForm from './Forms/QuoteForm';
+import contact from '@/data/contact';
 
 const modalStyle = {
     position: 'absolute',
@@ -30,15 +31,15 @@ const RequestQuote = ({ open, onClose }) => {
                         <Typography gutterBottom>You can reach us at:</Typography>
                         <Box sx={{ display: "flex" }}>
                             <PhoneOutlined sx={{ mx: 1 }} />
-                            <Typography gutterBottom>+92 300 5674006</Typography>
+                            <Typography gutterBottom>{contact.phone}</Typography>
                         </Box>
                         <Box sx={{ display: "flex" }}>
                             <EmailOutlined sx={{ mx: 1 }} />
-                            <Typography gutterBottom>fakhar@hciexpert.com</Typography>
+                            <Typography gutterBottom>{contact.email}</Typography>
                         </Box>
                         <Box sx={{ display: "flex" }}>
                             <CalendarMonthOutlined sx={{ mx: 1 }} />
-                            <Typography gutterBottom>Monday - Friday</Typography>
+                            <Typography gutterBottom>{contact.hours}</Typography>
                         </Box>
                         <Typography variant="h4" sx={{ mt: 4 }}><b>What Will Happen Next?</b></Typography>
                         <Typography component="div">
