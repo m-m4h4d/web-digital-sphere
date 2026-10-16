@@ -12,6 +12,13 @@ const contact = {
     // A Google Maps "Embed a map" URL (https://www.google.com/maps/embed?pb=...).
     // While empty, the Contact page shows a placeholder panel.
     mapEmbedUrl: '',
+    // Social profile URLs. The footer shows an icon for each one that is set.
+    social: {
+        facebook: '',
+        instagram: '',
+        x: '',
+        linkedin: '',
+    },
 };
 
 export const telHref = `tel:${contact.phone.replace(/[^\d+]/g, '')}`;
